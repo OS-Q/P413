@@ -22,7 +22,8 @@ void setup() {
   // initialize PDM with:
   // - one channel (mono mode)
   // - a 16 kHz sample rate
-  if (!PDM.begin(1, 16000)) {
+  if (!PDM.begin(1, 16000))
+  {
     Serial.println("Failed to start PDM!");
     while (1);
   }

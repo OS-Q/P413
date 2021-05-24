@@ -56,20 +56,7 @@ jobs:
       fail-fast: false
       matrix:
         example:
-          - "arduino-blink"
-          - "arduino-ble-led"
           - "arduino-serial-plotter"
-          - "arduino-nina-b1-generic-example"
-          - "mbed-rtos-ble-thermometer"
-          - "mbed-rtos-blink-baremetal"
-          - "mbed-ble-thermometer"
-          - "mbed-rtos-nfc"
-          - "mbed-rtos"
-          - "mbed-nfc"
-          # - "zephyr-blink"
-          # - "zephyr-ble-beacon"
-          # - "zephyr-subsys-nvs"
-          # - "zephyr-net-echo-client"
         # package: ["pio","qio"]
         os: [ubuntu-latest, windows-latest, macos-latest]
     runs-on: ${{ matrix.os }}
