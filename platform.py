@@ -22,11 +22,6 @@ class P413Platform(PlatformBase):
                 "upload_protocol",
                 self.board_config(board).get("upload.protocol", ""))
 
-            if self.board_config(board).get("build.bsp.name",
-                                            "nrf5") == "adafruit":
-                self.frameworks["arduino"][
-                    "package"] = "A413"
-
             if "mbed" in frameworks:
                 deprecated_boards_file = os.path.join(
                     self.get_dir(), "misc", "mbed_deprecated_boards.json")
@@ -47,11 +42,6 @@ class P413Platform(PlatformBase):
                 self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.80201.0"
                 if "windows" not in get_systype():
                     self.packages["tool-gperf"]["optional"] = False
-
-            if board == "nano33ble":
-                self.packages["toolchain-gccarmnoneeabi"]["version"] = "~1.80201.0"
-                self.frameworks["arduino"]["package"] = "framework-arduino-mbed"
-                self.frameworks["arduino"]["script"] = "builder/frameworks/arduino/mbed-core/arduino-core-mbed.py"
 
         if set(["bootloader", "erase"]) & set(targets):
             self.packages["tool-nrfjprog"]["optional"] = False
